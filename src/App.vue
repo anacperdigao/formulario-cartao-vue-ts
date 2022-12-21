@@ -1,27 +1,52 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div>
+    <button @click="Adiciona">+1</button>
+    <p v-html="count"></p>
+    <button @click="Diminui">-1</button>
+  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-});
+const count = ref(0)
+
+function Adiciona () {
+  count.value = count.value + 1
+}
+
+function Diminui () {
+  count.value = count.value - 1
+}
+
+
+
+// export default {
+//   name: 'App',
+
+//   data () {
+//     return {
+//       count: 0
+//     }
+//   },
+
+//   methods: {
+//     Adiciona () {
+//       this.count = this.count + 1
+//     },
+
+//     Diminui () {
+//       this.count = this.count - 1
+//     }
+//   },
+
+//   mounted() {
+//     alert(`The initial count is ${this.count}`)
+//   }
+// }
+
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+
 </style>
